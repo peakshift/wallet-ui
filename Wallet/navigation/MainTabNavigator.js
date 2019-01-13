@@ -3,16 +3,17 @@ import { Platform } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 
 import TabBarIcon from '../components/TabBarIcon';
-import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
+import ContactsScreen from '../screens/ContactsScreen';
+import WalletScreen from '../screens/WalletScreen';
+import TransactionsScreen from '../screens/TransactionsScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 
-const HomeStack = createStackNavigator({
-  Home: HomeScreen,
+const ContactsStack = createStackNavigator({
+  Contacts: ContactsScreen
 });
 
-HomeStack.navigationOptions = {
-  tabBarLabel: 'Home',
+ContactsStack.navigationOptions = {
+  tabBarLabel: 'Contacts',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
@@ -22,21 +23,43 @@ HomeStack.navigationOptions = {
           : 'md-information-circle'
       }
     />
-  ),
+  )
 };
 
-const LinksStack = createStackNavigator({
-  Links: LinksScreen,
+const WalletStack = createStackNavigator({
+  Wallet: WalletScreen
 });
 
-LinksStack.navigationOptions = {
-  tabBarLabel: 'Links',
+WalletStack.navigationOptions = {
+  tabBarLabel: 'Wallet',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'}
+      name={
+        Platform.OS === 'ios'
+          ? `ios-information-circle${focused ? '' : '-outline'}`
+          : 'md-information-circle'
+      }
     />
-  ),
+  )
+};
+
+const TransactionsStack = createStackNavigator({
+  Transactions: TransactionsScreen
+});
+
+TransactionsStack.navigationOptions = {
+  tabBarLabel: 'Transactions',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon
+      focused={focused}
+      name={
+        Platform.OS === 'ios'
+          ? `ios-information-circle${focused ? '' : '-outline'}`
+          : 'md-information-circle'
+      }
+    />
+  )
 };
 
 const SettingsStack = createStackNavigator({
@@ -54,7 +77,8 @@ SettingsStack.navigationOptions = {
 };
 
 export default createBottomTabNavigator({
-  HomeStack,
-  LinksStack,
+  ContactsStack,
+  WalletStack,
+  TransactionsStack,
   SettingsStack,
 });

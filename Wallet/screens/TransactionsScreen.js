@@ -1,16 +1,16 @@
 import React from 'react';
-import { SafeAreaView, ScrollView, StyleSheet, Text } from "react-native";
+import { SafeAreaView, ScrollView, StyleSheet, Text } from 'react-native';
 
-export default class SettingsScreen extends React.Component {
+export default class TransactionsScreen extends React.Component {
   static navigationOptions = {
-    title: 'Settings',
+    title: 'Transactions',
   };
 
   render() {
     return (
       <SafeAreaView style={styles.container}>
         <ScrollView>
-          <Text>Settings</Text>
+          <Text>Transactions</Text>
         </ScrollView>
       </SafeAreaView>
     );
@@ -25,4 +25,3 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff'
   },
 });
-
