@@ -81,4 +81,6 @@ export default createBottomTabNavigator({
   WalletStack,
   TransactionsStack,
   SettingsStack,
+}, {
+  initialRouteName: 'WalletStack',
 });
