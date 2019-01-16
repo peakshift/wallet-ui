@@ -69,6 +69,14 @@ export default class WalletScreen extends React.Component {
   render() {
     return (
       <SafeAreaView style={styles.container}>
+        <View style={styles.header}>
+          <View>
+            <Image
+              source={require('../assets/images/logo-syscoin.png')}
+              style={styles.headerImage}
+            />
+          </View>
+        </View>
         <View style={styles.summaryContainer}>
           <Image
             source={require('../assets/images/avatar.png')}
@@ -131,6 +139,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'flex-start',
     backgroundColor: '#398DCA'
+  },
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  headerImage: {
+    resizeMode: 'contain',
+    width: 150
   },
   whiteText: {
     color: '#fff'
