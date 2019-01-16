@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView, ScrollView, View, FlatList, StyleSheet, Text, Dimensions } from 'react-native';
+import { SafeAreaView, TouchableOpacity, View, Image, FlatList, StyleSheet, Text, Dimensions } from 'react-native';
 
 const windowWidth = Dimensions.get('window').width;
 
@@ -70,7 +70,28 @@ export default class WalletScreen extends React.Component {
     return (
       <SafeAreaView style={styles.container}>
         <View style={styles.summaryContainer}>
-          <Text style={styles.whiteText}>Wallet summary</Text>
+          <Image
+            source={require('../assets/images/avatar.png')}
+            style={styles.summaryImageContainer}
+          />
+          <View style={styles.summaryInfoContainer}>
+            <View style={styles.summaryInfoItem}>
+              <Text style={styles.summaryLabel}>{'{Account Label}'}</Text>
+              <Text style={styles.summaryWalletAddress}>SRhwEU1aQk2DPJSC6NTySTdCEtGpS7UF4Y</Text>
+            </View>
+            <View style={styles.summaryInfoItem}>
+              <Text style={styles.summaryLabel}>Balance</Text>
+              <Text style={styles.summaryBalance}>10,456.13 SYS</Text>
+            </View>
+            <View style={Object.assign({}, styles.summaryInfoItem, styles.summaryButtonsContainer)}>
+              <TouchableOpacity style={styles.buttonContainer} onPress={() => console.log('send')}>
+                <Text style={styles.buttonText}>Send</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.buttonContainer} onPress={() => console.log('receive')}>
+                <Text style={styles.buttonText}>Receive</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
         </View>
         <View style={styles.transfersContainer}>
           <Text style={styles.heading}>Transfers</Text>
@@ -78,20 +99,20 @@ export default class WalletScreen extends React.Component {
             style={styles.transfersList}
             data={this.state.transfers}
             renderItem={({item}) => (
-              <View style={styles.transfersListItem}>
-                <View style={styles.leftContainer}>
-                  <View style={styles.transfersListItemImage}>
+              <TouchableOpacity style={styles.transfersListItem} onPress={() => console.log('clicked item with id:' + item.id)}>
+                  <View style={styles.leftContainer}>
+                    <View style={styles.transfersListItemImage}>
+                    </View>
+                    <Text style={styles.personName}>{item.name}</Text>
                   </View>
-                  <Text style={styles.personName}>{item.name}</Text>
-                </View>
-                <View style={styles.rightContainer}>
-                  <View style={Object.assign({}, styles.amountContainer, styles[this._getPositiveOrNegativeStyles(item.amount) + 'ContainerBackground'])}>
-                    <Text style={Object.assign({}, styles.amount, styles[this._getPositiveOrNegativeStyles(item.amount) + 'Text'])}>
-                      {item.amount.toString()} SYS
-                    </Text>
+                  <View style={styles.rightContainer}>
+                    <View style={Object.assign({}, styles.amountContainer, styles[this._getPositiveOrNegativeStyles(item.amount) + 'ContainerBackground'])}>
+                      <Text style={Object.assign({}, styles.amount, styles[this._getPositiveOrNegativeStyles(item.amount) + 'Text'])}>
+                        {item.amount > 0 ? '+' : ''}{item.amount} SYS
+                      </Text>
+                    </View>
                   </View>
-                </View>
-              </View>
+              </TouchableOpacity>
             )}
             keyExtractor={(item) => item.id.toString()}
             refreshing={this.state.refreshing}
@@ -108,7 +129,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     backgroundColor: '#398DCA'
   },
   whiteText: {
@@ -120,9 +141,54 @@ const styles = StyleSheet.create({
     marginTop: 10
   },
   summaryContainer: {
-    marginTop: 100,
-    padding: 50,
-    marginBottom: 100,
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
+    marginTop: 30,
+    marginBottom: 10
+  },
+  summaryImageContainer: {
+    backgroundColor: 'gray',
+    width: 60,
+    height: 60,
+    borderRadius: 30,
+    marginRight: 10,
+    borderWidth: 2,
+    borderColor: 'white'
+  },
+  summaryInfoContainer: {
+
+  },
+  summaryInfoItem: {
+    marginBottom: 20
+  },
+  summaryLabel: {
+    color: '#6AB1DA',
+    textTransform: 'uppercase',
+    fontWeight: '600'
+  },
+  summaryBalance: {
+    color: 'white',
+    fontSize: 20
+  },
+  summaryWalletAddress: {
+    color: 'white',
+    fontWeight: 'bold'
+  },
+  summaryButtonsContainer: {
+    flexDirection: 'row'
+  },
+  buttonContainer: {
+    padding: 10,
+    paddingHorizontal: 30,
+    backgroundColor: 'white',
+    borderRadius: 20,
+    marginRight: 10
+  },
+  buttonText: {
+    textAlign: 'center',
+    color: '#398DCA',
+    fontSize: 16
   },
   transfersContainer: {
     backgroundColor: '#fff',
