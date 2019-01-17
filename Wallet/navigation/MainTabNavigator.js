@@ -2,7 +2,7 @@ import React from 'react';
 import { Platform } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 
-import TabBarIcon from '../components/TabBarIcon';
+import TabBarIcon from '../components/icons/TabBarIcon';
 import ContactsScreen from '../screens/ContactsScreen';
 import WalletScreen from '../screens/WalletScreen';
 import TransactionsScreen from '../screens/TransactionsScreen';
