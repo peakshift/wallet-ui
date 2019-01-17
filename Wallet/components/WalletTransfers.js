@@ -53,7 +53,7 @@ export class WalletTransfers extends React.Component {
     }, 1000)
   }
 
-  _handleRefresh () {
+  _handleRefresh = () => {
     this.setState({
       loading: true,
       refreshing: true,
