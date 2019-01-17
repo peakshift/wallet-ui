@@ -45,8 +45,38 @@ export class WalletTransfers extends React.Component {
           {
             id: 3,
             image: require('../assets/images/robot-dev.png'),
-            name: 'Johns Beharry',
-            amount: 351
+            name: 'Kenroy George',
+            amount: -351
+          },
+          {
+            id: 4,
+            image: require('../assets/images/robot-dev.png'),
+            name: 'Arvinda R.',
+            amount: 13.4
+          },
+          {
+            id: 5,
+            image: require('../assets/images/robot-dev.png'),
+            name: 'Massy Supermarket',
+            amount: -5
+          },
+          {
+            id: 6,
+            image: require('../assets/images/robot-dev.png'),
+            name: 'Office Shop',
+            amount: -21.99
+          },
+          {
+            id: 7,
+            image: require('../assets/images/robot-dev.png'),
+            name: 'IGA',
+            amount: -59.23
+          },
+          {
+            id: 8,
+            image: require('../assets/images/robot-dev.png'),
+            name: 'Food Land Ltd.',
+            amount: -67.75
           }
         ]
       })

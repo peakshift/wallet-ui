@@ -21,7 +21,7 @@ export default class WalletScreen extends React.Component {
       },
       user: {
         avatar: require('../assets/images/avatar.png'),
-        address: 'SRhwEU1aQk2DPJSC6NTySTdCEtGpS7UF4Y',
+        address: 'SRhwEU1aQk2DPJSC6NTySTdCE...',
         balance: '10,456.13',
       }
     }
