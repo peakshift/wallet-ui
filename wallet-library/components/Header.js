@@ -4,6 +4,7 @@ import { View } from 'react-native';
 import { HeaderImage } from "./images/HeaderImage";
 import { HeaderButton } from "./buttons/HeaderButton";
 
+
 const ViewHeader = styled(View)`
   flex-direction: row;
   align-items: center;

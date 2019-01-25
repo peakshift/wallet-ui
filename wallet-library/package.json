@@ -1,0 +1,17 @@
+{
+  "scripts": {
+    "storybook": "storybook start"
+  },
+  "devDependencies": {
+    "@storybook/react-native": "^4.1.11",
+    "@storybook/addon-actions": "^4.1.11",
+    "@storybook/addon-links": "^4.1.11",
+    "@storybook/addons": "^4.1.11",
+    "babel-core": "^6.26.3",
+    "babel-runtime": "^6.26.0",
+    "prop-types": "^15.6.2"
+  },
+  "dependencies": {
+    "react-native": "^0.58.1"
+  }
+}

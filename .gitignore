@@ -62,3 +62,7 @@ typings/
 
 # Jetbrains
 .idea
+
+# DS_Store
+.DS_Store
+wallet-library/.DS_Store
